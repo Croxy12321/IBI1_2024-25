@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+Programming_language_popularity = {'JavaScript':62.3,'HMTL':52.9,'Python':51,'SQL':51,'TypeScript':38.5}
+print(Programming_language_popularity)
+languages = list(Programming_language_popularity.keys())
+percentages = list(Programming_language_popularity.values())
+plt.bar(languages, percentages, color='blue')
+plt.xlabel('Languages')
+plt.ylabel('Users (percentage)')
+plt.title('Programming Languages Popularity')
+plt.show()
+input_language = "JavaScript"
+print(f"The percentage of developers who use {input_language} is {Programming_language_popularity[input_language]}%.")
