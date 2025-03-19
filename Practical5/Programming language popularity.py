@@ -7,7 +7,7 @@ print(Programming_language_popularity)
 languages = list(Programming_language_popularity.keys())
 percentages = list(Programming_language_popularity.values())
 #Create a bar chart
-plt.bar(languages, percentages, color='blue')
+plt.bar(languages, percentages,width=0.8, color='pink')
 #Set labels for the axes
 plt.xlabel('Languages')
 plt.ylabel('Users (percentage)')
