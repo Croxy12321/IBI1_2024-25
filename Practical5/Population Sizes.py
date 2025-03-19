@@ -14,6 +14,6 @@ plt.pie(sorted_uk, labels=['England', 'Scotland', 'Wales', 'Northern Ireland'], 
 plt.title('Population Distribution in UK')
 #creat another pie chart
 plt.subplot(1, 2, 2)  
-plt.pie(sorted_zhejiang, labels=['Zhejiang', 'Fujian', 'Jiangxi', 'Anhui', 'Jiangsu'], autopct='%1.1f%%',shadow=False, startangle=140)
+plt.pie(sorted_zhejiang, labels=['Zhejiang', 'Fujian', 'Jiangxi', 'Anhui', 'Jiangsu'],colors=['pink','lightpink','hotpink','mediumvioletred','lavenderblush'], autopct='%1.1f%%',shadow=False, startangle=140)
 plt.title('Population Distribution in Zhejiang Neighbouring Provinces')
 plt.show()
