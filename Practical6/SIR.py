@@ -44,9 +44,9 @@ plt.plot(S_list, label='Susceptible')
 plt.plot(I_list, label='Infected')
 plt.plot(R_list, label='Recovered')
 # Set the horizontal and vertical headings of the chart and the general headings
-plt.xlabel(time)
-plt.ylabel(number of people)
-plt.title(SIR.model)
+plt.xlabel('Time')
+plt.ylabel('Number of people')
+plt.title('SIR model')
 plt.legend()
 # Show the chart
 plt.show()
