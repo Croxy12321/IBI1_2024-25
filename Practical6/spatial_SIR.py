@@ -27,7 +27,8 @@ for t in range(100):
             for dy in [-1, 0, 1]:
                 if dx == 0 and dy == 0:
                     continue  # Skip the current cell
-                nx, ny = x + dx, y + dy
+                nx=x+dx 
+                ny=y+dy
                 # Check if the neighbor is within bounds and susceptible
                 if 0 <= nx < grid_size and 0 <= ny < grid_size:
                     if population[nx, ny] == 0:
@@ -42,10 +43,11 @@ for t in range(100):
                     population[x, y] = 2
     # Store the current population state
     population_history.append(population.copy())
-# Plot the spread of the disease over time
 fig, axes = plt.subplots(2, 2, figsize=(10, 8), dpi=150)
-times = [0, 10, 50, 99]  # Time points to plot
-for i, ax in enumerate(axes.flat):
+times = [0, 10, 50, 99]
+# Per subgraph
+for i in range(4):
+    ax = axes[i // 2, i % 2]  # Calculates the position of the current subgraph
     time = times[i]
     ax.imshow(population_history[time], cmap='viridis', interpolation='nearest')
     ax.set_title(f'Time {time}')
