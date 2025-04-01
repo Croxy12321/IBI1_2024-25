@@ -1,14 +1,11 @@
 import re
-
 # open the file and read lines
 with open('C:/Users/27661/Downloads/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa', 'r',encoding='utf-8') as infile:
     lines = infile.readlines()
-
 # initialize variables
 current_gene = None
 current_sequence = []
 tata_genes = []
-
 # process each line in the file
 for line in lines:
     line = line.strip()
@@ -25,7 +22,6 @@ for line in lines:
     else:
         # add the sequence line to the current gene's sequence
         current_sequence.append(line)
-
 # deal with the last gene in the file
 if current_gene is not None and current_sequence:
     sequence = ''.join(current_sequence)
