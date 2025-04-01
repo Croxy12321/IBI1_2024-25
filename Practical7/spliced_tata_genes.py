@@ -23,7 +23,8 @@ for line in lines:
                 if tata_count > 0:
                     spliced_genes.append((current_gene, tata_count, sequence))
         # new gene
-        current_gene = line[1:].split()[0]  # get gene names
+        current_gene_1 = line[1:].split()[0]  # get gene names
+        current_gene = re.sub(r'_mRNA','',current_gene_1)  # remove '_mRNA' from gene name
         current_sequence = []
     else:
         # add the sequence line

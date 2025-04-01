@@ -14,10 +14,11 @@ for line in lines:
         if current_gene is not None and current_sequence:
             # detect if the sequence contains TATA box
             sequence = ''.join(current_sequence)
-            if re.search(r'TATA[AT][AT]', sequence):
+            if re.search('TATA[AT][AT]', sequence):
                 tata_genes.append((current_gene, sequence))
         # reset for the new gene
-        current_gene = line[1:].split()[0]  # get gene name
+        current_gene_1 = line[1:].split()[0]  # get gene name
+        current_gene = re.sub(r'_mRNA','',current_gene_1)  # remove '_mRNA' from gene name
         current_sequence = []
     else:
         # add the sequence line to the current gene's sequence
@@ -25,7 +26,7 @@ for line in lines:
 # deal with the last gene in the file
 if current_gene is not None and current_sequence:
     sequence = ''.join(current_sequence)
-    if re.search(r'TATA[AT][AT]', sequence):
+    if re.search('TATA[AT][AT]', sequence):
         tata_genes.append((current_gene, sequence))
 # write the TATA box genes to the Practical7
 output_path = r'C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical7/tata_genes.fa'
