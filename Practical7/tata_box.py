@@ -5,8 +5,8 @@ ouput_file=open('C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical7/tata_g
 # read lines
 lines=input_file.read()
 # remove unnecessary content
-lines_preliminary_deletion=re.sub(r'_mRNA.+?]','',lines)
-lines_secondary_deletion=re.sub(r' cdna.+?]','',lines_preliminary_deletion)
+lines_preliminary_deletion=re.sub(r'_mRNA.+]','',lines)
+lines_secondary_deletion=re.sub(r' cdna.+]','',lines_preliminary_deletion)
 # merge lines
 lines_combination=re.sub('\n','',lines_secondary_deletion)
 # separate the lines and generate a list with 'gene name + sequence' as the elements
@@ -23,3 +23,5 @@ gene_string='\n'.join(gene)
 lines_splited=re.sub(r'>(.{7})',r'>\1\n',gene_string)
 # write the output file
 ouput_file.write(lines_splited)
+# close the files
+input_file.close()
