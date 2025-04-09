@@ -1,5 +1,5 @@
 #In the first part of the code, I wrote an input system that allows users to freely input strength and weight and simply identify whether the input conforms to the requirements. 
-#In the second part, I defined functions
+#In the second part, I defined the function
 #In the last part, I added an example
 
 # input the strength of paracetamol and the weight of the child

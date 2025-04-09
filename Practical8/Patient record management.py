@@ -1,5 +1,5 @@
 # The first part of the code is an input system that allows users to freely enter patient information and simply identify whether the input conforms to the requirements. 
-# The second part is defining functions and class
+# The second part is defining the function and the class
 # In the last part, I added an example
 
 import re

@@ -1,5 +1,5 @@
 #In the first part of the code, I wrote an input system that allows users to freely input sequences and identify sequences and simply identify whether the input conforms to the requirements. 
-#In the second part, I defined functions
+#In the second part, I defined the function
 #In the last part, I added an example
 
 import re
