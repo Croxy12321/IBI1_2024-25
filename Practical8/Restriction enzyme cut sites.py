@@ -7,10 +7,10 @@ import re
 sequence = input("Enter the DNA sequence: ")
 recognition_sequence = input("Enter the recognition sequence: ")
 # check if the recognition sequence and the recognition sequence are all A,T,C,G
-if not re.match(r'^[ATCG]+$', sequence):
+if not re.search(r'^[ATCG]+$', sequence):
     print("Invalid sequence. Please enter a sequence containing only A, T, C, G.")
     exit()
-if not re.match(r'^[ATCG]+$', recognition_sequence):
+if not re.search(r'^[ATCG]+$', recognition_sequence):
     print("Invalid recognition sequence. Please enter a sequence containing only A, T, C, G.")
     exit()
 # check if the recognition sequence is in the sequence
