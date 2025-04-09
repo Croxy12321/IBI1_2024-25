@@ -44,5 +44,7 @@ example_age = 25
 example_admission_date = 20060312
 example_history = None
 example_patient = patients(example_name, example_age, example_admission_date, example_history)
+# explain the example
 print(f'Example: The patient\'s name is {example_name}, age is {example_age}, admission date is {example_admission_date}, and history is {example_history}.')
+# use the function to deal with the example
 example_patient.print_details()

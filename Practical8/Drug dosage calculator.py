@@ -32,5 +32,7 @@ print(f"The volume of paracetamol to be given is {volume} ml.")
 example_strength = 120
 example_weight = 20
 example_volume = calculate_volume(example_strength, example_weight)
+# explain the example
 print(f'Example: The strength of paracetamol is {example_strength} mg/5ml and the weight of the child is {example_weight} kg.')
+# use the function to deal with the example
 print(f'Example: The dosage of paracetamol for a child weighing {example_weight} kg is {example_volume} mg.')

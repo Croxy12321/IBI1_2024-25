@@ -36,5 +36,7 @@ print(f"The recognition sequence {recognition_sequence} is found at the followin
 example_sequence = 'ATCGATCGATCG'
 example_recognition_sequence = 'CGAT'
 example_cut_sites = find_recognition_sequence(example_sequence, example_recognition_sequence)
+# explain the example
 print(f'Example: The sequence is {example_sequence} and the recognition sequence is {example_recognition_sequence}.')
+# use the function to deal with the example
 print(f'Example: The recognition sequence {example_recognition_sequence} is found at the following positions: {example_cut_sites}.')
