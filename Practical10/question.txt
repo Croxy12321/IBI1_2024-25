@@ -1,0 +1,1 @@
+Plot a boxplot of DALYs across countries in 1990.
