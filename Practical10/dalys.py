@@ -27,7 +27,7 @@ fr = dalys_data.loc[dalys_data["Entity"] == "France", ["DALYs", "Year"]] # Filte
 uk_mean = uk["DALYs"].mean() # Calculate the mean of the "DALYs" column for the United Kingdom
 fr_mean = fr["DALYs"].mean() # Calculate the mean of the "DALYs" column for France
 
-# Print the mean of DALYs for the UK and France
+# Print result of the comparision of the mean of DALYs for the UK and France
 if uk_mean > fr_mean:
     print("The average DALYs in the United Kingdom is higher than that in France")
 else:
