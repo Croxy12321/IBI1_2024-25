@@ -1,80 +1,54 @@
-def most_frequent_trinucleotide(mrna_sequence):
-    count_dict = {}  
-    stop_codons = {"UAA", "UAG", "UGA"}
-    
-    for i in range(0, len(mrna_sequence) - 2, 3):
-        codon = mrna_sequence[i:i+3]
-        if codon in stop_codons:
-            continue  
-        if codon in count_dict:
-            count_dict[codon] += 1
-        else:
-            count_dict[codon] = 1
+def load_blosum62(filepath):
+    matrix = {}
+    with open(filepath, 'r') as file:
+        lines = []
+        for line in file:
+          line = line.strip()
+          if not line.startswith('#') and line:
+            lines.append(line)  
+    header = lines[0].split()
+    for line in lines[1:]:
+        parts = line.split()
+        row_aa = parts[0]
+        scores = list(map(int, parts[1:]))
+        for col_aa, score in zip(header, scores):
+                matrix[(row_aa, col_aa)] = score
+    return matrix
+def read_fasta(filepath):
+    sequence = ''
+    with open(filepath, 'r') as file:
+        for line in file:
+            if not line.startswith('>'):
+                sequence += line.strip()
+    return sequence
 
-    
-    max_count = 0
-    most_frequent_codon = None
-    for codon, count in count_dict.items():
-        if count > max_count:
-            max_count = count
-            most_frequent_codon = codon
+def align_sequences(seq1, seq2, blosum):
+    score = 0
+    identical = 0
+    length = min(len(seq1), len(seq2))  
 
-    return most_frequent_codon
+    for a1, a2 in zip(seq1[:length], seq2[:length]):
+        score += blosum.get((a1, a2), -4)  
+        if a1 == a2:
+            identical += 1
 
-codon_table = {
-    'AUG': 'Methionine', 
-    'UUU': 'Phenylalanine', 'UUC': 'Phenylalanine',
-    'UUA': 'Leucine', 'UUG': 'Leucine',
-    'CUU': 'Leucine', 'CUC': 'Leucine', 'CUA': 'Leucine', 'CUG': 'Leucine',
-    'AUU': 'Isoleucine', 'AUC': 'Isoleucine', 'AUA': 'Isoleucine',
-    'GUU': 'Valine', 'GUC': 'Valine', 'GUA': 'Valine', 'GUG': 'Valine',
-    'UCU': 'Serine', 'UCC': 'Serine', 'UCA': 'Serine', 'UCG': 'Serine',
-    'AGU': 'Serine', 'AGC': 'Serine',
-    'CCU': 'Proline', 'CCC': 'Proline', 'CCA': 'Proline', 'CCG': 'Proline',
-    'ACU': 'Threonine', 'ACC': 'Threonine', 'ACA': 'Threonine', 'ACG': 'Threonine',
-    'GCU': 'Alanine', 'GCC': 'Alanine', 'GCA': 'Alanine', 'GCG': 'Alanine',
-    'UAU': 'Tyrosine', 'UAC': 'Tyrosine',
-    'CAU': 'Histidine', 'CAC': 'Histidine',
-    'CAA': 'Glutamine', 'CAG': 'Glutamine',
-    'AAU': 'Asparagine', 'AAC': 'Asparagine',
-    'AAA': 'Lysine', 'AAG': 'Lysine',
-    'GAU': 'Aspartic acid', 'GAC': 'Aspartic acid',
-    'GAA': 'Glutamic acid', 'GAG': 'Glutamic acid',
-    'UGU': 'Cysteine', 'UGC': 'Cysteine',
-    'UGG': 'Tryptophan',
-    'CGU': 'Arginine', 'CGC': 'Arginine', 'CGA': 'Arginine', 'CGG': 'Arginine',
-    'AGA': 'Arginine', 'AGG': 'Arginine',
-    'GGU': 'Glycine', 'GGC': 'Glycine', 'GGA': 'Glycine', 'GGG': 'Glycine'}
-def codon_to_amino_acid(most_frequent_codon):
-    if most_frequent_codon in codon_table:
-       return codon_table[most_frequent_codon]
-    else:
-       return 'Unknown'
-print ('This condon is '+codon_to_amino_acid(most_frequent_codon))
+    percent_identity = (identical / length) * 100
+    return score, percent_identity
 
-import matplotlib.pyplot as plt
+if __name__ == "__main__":
+    blosum = load_blosum62("C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical13/blosum62.txt")
+    human_seq = read_fasta("C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical13/human_sod2.fasta")
+    mouse_seq = read_fasta("C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical13/mouse_sod2.fasta")
+    random_seq = read_fasta("C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical13/random.fasta")
 
-def plot_amino_acid_frequencies(mrna_sequence):
-    amino_acid_count = {}  
-    stop_codons = {"UAA", "UAG", "UGA"}
-    
+    print("Human vs Mouse:")
+    score, identity = align_sequences(human_seq, mouse_seq, blosum)
+    print(f"Score: {score}, Identity: {identity:.2f}%\n")
 
-    for i in range(0, len(mrna_sequence) - 2, 3):
-        codon = mrna_sequence[i:i+3]
-        if codon in stop_codons:
-            continue  
-        amino_acid = codon_table[codon]
-        if amino_acid in amino_acid_count:
-            amino_acid_count[amino_acid] += 1
-        else:
-            amino_acid_count[amino_acid] = 1
+    print("Human vs Random:")
+    score, identity = align_sequences(human_seq, random_seq, blosum)
+    print(f"Score: {score}, Identity: {identity:.2f}%\n")
 
-    plt.figure(figsize=(12, 6))
-    plt.bar(amino_acid_count.keys(), amino_acid_count.values())
-    plt.xlabel('Amino Acids')
-    plt.ylabel('Frequency')
-    plt.title('Amino Acid Frequency Distribution')
-    plt.xticks(rotation=90) 
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.tight_layout()
-    plt.show()
+    print("Mouse vs Random:")
+    score, identity = align_sequences(mouse_seq, random_seq, blosum)
+    print(f"Score: {score}, Identity: {identity:.2f}%\n")
