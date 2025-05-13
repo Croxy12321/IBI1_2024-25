@@ -4,12 +4,12 @@ Practical 13 Summary
 The human SOD2 protein (UniProt ID: P04179) consists of 222 amino acids and is located in the {mitochondrion}. This location reflects its key role in oxidative stress defense, where it converts superoxide radicals into hydrogen peroxide to protect mitochondrial integrity.
 
 2. BLAST Results:
-Using the UniProt BLAST tool, the human SOD2 sequence was aligned against proteins from placental mammals (Eutheria). The percentage identity of retrieved hits ranged from approximately {40% to 100%}. The highest-scoring hit was the mouse SOD2 protein (UniProt ID: P09671), with a percentage identity of 90.09%.
+Using the UniProt BLAST tool, the human SOD2 sequence was aligned against proteins from placental mammals (Eutheria). The percentage identity of retrieved hits ranged from approximately 40% to 100%. The highest-scoring hit was the mouse SOD2 protein (UniProt ID: P09671), with a percentage identity of 90.09%.
 
 3. Alignment Results:
-- Human vs Mouse: BLOSUM Score = 1097, Percent Identity = 90.09%
-- Human vs Random: BLOSUM Score = -239, Percent Identity = 5.41%
-- Mouse vs Random: BLOSUM Score = -252, Percent Identity = 4.95%
+- Human vs Mouse: BLOSUM Score = 1097, Percent Identity = 90.09% (Percent without limiting decimal places = 90.09009009009009%)
+- Human vs Random: BLOSUM Score = -239, Percent Identity = 5.41% (Percent without limiting decimal places = 5.405405405405405%)
+- Mouse vs Random: BLOSUM Score = -252, Percent Identity = 4.95% (Percent without limiting decimal places = 4.954954954954955%)
 
 4. Interpretation:
 The alignment results clearly indicate that the human and mouse SOD2 proteins are highly similar, both in terms of substitution score and exact amino acid matches.  Their high BLOSUM score and identity percentage reflect strong evolutionary conservation among mammals.

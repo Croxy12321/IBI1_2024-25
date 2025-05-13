@@ -55,14 +55,14 @@ random_seq = read_fasta("C:/Users/27661/Desktop/IBI/IBIP3/IBI1_2024-25/Practical
 # Compare human with mouse
 print("Human vs Mouse:")
 score, identity = align_sequences(human_seq, mouse_seq, blosum)
-print(f"Score: {score}, Identity: {identity:.2f}%\n")
+print(f"Score: {score}, Identity: {identity:.2f}% (without limiting decimal places:{identity}%)\n" )
 
 # Compare human with random
 print("Human vs Random:")
 score, identity = align_sequences(human_seq, random_seq, blosum)
-print(f"Score: {score}, Identity: {identity:.2f}%\n")
+print(f"Score: {score}, Identity: {identity:.2f}% (without limiting decimal places:{identity}%)\n")
 
 # Compare mouse with random
 print("Mouse vs Random:")
 score, identity = align_sequences(mouse_seq, random_seq, blosum)
-print(f"Score: {score}, Identity: {identity:.2f}%\n")
+print(f"Score: {score}, Identity: {identity:.2f}% (without limiting decimal places:{identity}%)\n")
