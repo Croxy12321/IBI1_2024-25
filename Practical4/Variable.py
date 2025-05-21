@@ -27,3 +27,11 @@ print(f"{True}\t{True}\t{True and True}")
 print(f"{True}\t{False}\t{True and False}")
 print(f"{False}\t{True}\t{False and True}")
 print(f"{False}\t{False}\t{False and False}")
+
+#The results of logical operations with tab separation
+X: True, Y: False, W (X and Y): False
+X       Y       W (X and Y)
+True    True    True
+True    False   False
+False   True    False
+False   False   False
