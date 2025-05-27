@@ -1,5 +1,7 @@
 Based on the formative feedback, I have made the following improvements:
 
+As for Practical3:
+
 I,As for Relocated Reflection.txt:
 
 I had mistakenly placed Reflection.txt in the wrong folder. I have now moved it back to the correct Practical3 directory.
@@ -17,5 +19,13 @@ I replaced the vague commit message '2' with more informative descriptions, such
 2, Edited Introductions.txt for being detailed
 
 3, For the Reflection.txt, Reset the incorrect file location
+
+As for Practical4:
+
+I add the missing comment in variables.py with keeping the previous output which the professor liked.
+
+As for Practical5:
+
+I have received 100% so no changes were necessary.
 
 
