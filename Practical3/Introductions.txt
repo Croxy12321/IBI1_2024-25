@@ -1,4 +1,4 @@
 Hello, my name is Lin Yiran.
-I like drinking milktea and eating cakes.
+I like drinking milktea and eating cream cakes.
 I am enjoying playing video game. 
 I am happy that I can push my repo from Visual Studio Code to GitHub.
